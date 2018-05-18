@@ -1,5 +1,7 @@
 # ForbiddenIsland
 
+Roles: Tk: JB Assets: LC Cards: TG Map: TC
+
 https://discord.gg/yStTM4D
 
                  _
