@@ -2,4 +2,4 @@
 
 Filename | Dimensions (WxH)
 --- | --- 
-`water-level-<x>.png` | 500x1100
+`water-level-<x>.png` | `500x1100`
