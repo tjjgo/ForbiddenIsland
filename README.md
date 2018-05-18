@@ -1,33 +1,5 @@
 # Forbidden Island
+ - Trello for tasks
+ - Discord for comms
 
-Trello for tasks
-
-Discord for comms
-
-```
-                 _
-                ;`',
-                `,  `,
-                 ',   ;   ,,-""==..,
-                  \    ','          \
-          ,-""'-., ;    '    __.-="-.;
-        ," ,,_    "V      _."
-       ;,'   ''-,          "=--,_
-              ,-''    _  _       `,
-             /   ,.-+(_)(_)´--.,   ;
-            ,'  /   ; (_)       `\ ,
-            ; ,/    ;._.;         ;
-            !,'     ;   ;
-            V'      ;   ;
-                    ;._.;
-                    ;   ;
-                    ;   ;        ~
-     ~              ;._.;
-               ~    ;   ;
-                   .´   `.                ~
-             __,.--;.___.;--.,___
-       _,,-""      ;     ;       ""-,,_
-   .-´´            ;     ;             ``-.
-  ",              ´       `               ,"        ~
-    "-_                                _-"
-```
+[Logo]: http://www4.pcmag.com/media/images/487089-forbidden-island-top.jpg
