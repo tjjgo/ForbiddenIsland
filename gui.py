@@ -5,7 +5,7 @@ class App():
     WIDTH = 1100 # > 8*TILE_SIZE
     HEIGHT = 0 # For auto height from width, keep small
     TILE_SIZE = 125 # Default=125
-    
+
     def __init__(self):
         self.fixSize()
         self.createGui()
@@ -31,8 +31,6 @@ class App():
 
         self.canvas = Tk.Canvas(self.root, width=self.WIDTH, height=self.HEIGHT, bg="#705840")
         self.canvas.pack()
-        
-    mainloop = lambda self: self.root.mainloop()
 
     def drawRect(self, x1,y1, x2,y2):
         self.canvas.create_rectangle(x1,y1, x2,y2, fill="DARK GREY")
@@ -51,6 +49,8 @@ class App():
             for x in range(n):
                 self.addTile(x+xOffset, y)
 
+    mainloop = lambda self: self.root.mainloop()
+    
 root = App()
 root.addTiles()
 root.mainloop()
