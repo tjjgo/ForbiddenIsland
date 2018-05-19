@@ -16,12 +16,9 @@ class App():
         if ((spacingX > spacingY)and(spacingY>0)): # Height restrict
             self.SPACING = spacingY
             self.WIDTH = int(0.5+(7*self.SPACING)+(5*self.TILE_SIZE))
-            print("Resizing width", self.WIDTH, self.SPACING)
         else: # Width restrict
             self.SPACING = spacingX
-            print(self.HEIGHT,)
             self.HEIGHT = int(0.5+(7*self.SPACING)+(6*self.TILE_SIZE))
-            print("Resizing height", self.HEIGHT, self.SPACING)
 
     def createGui(self):
         self.root = Tk.Tk()
@@ -34,6 +31,7 @@ class App():
 
         self.canvas = Tk.Canvas(self.root, width=self.WIDTH, height=self.HEIGHT, bg="#705840")
         self.canvas.pack()
+        
     mainloop = lambda self: self.root.mainloop()
 
     def drawRect(self, x1,y1, x2,y2):
@@ -51,9 +49,7 @@ class App():
             n = int(7-2*abs(2.5-y)) #2,4,6,6,4,2
             xOffset = 1+int(-0.5+abs(2.5-y)) # 2,1,0,0,1,2
             for x in range(n):
-                #xPos = self.TILE_SIZE*(x+1+xOffset) + spacing*(x+2+xOffset)
                 self.addTile(x+xOffset, y)
-                #self.drawRect(xPos,yPos, xPos+self.TILE_SIZE, yPos+self.TILE_SIZE)
 
 root = App()
 root.addTiles()
