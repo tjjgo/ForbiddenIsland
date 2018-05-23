@@ -2,17 +2,19 @@ try: import Tkinter as Tk
 except ImportError: import tkinter as Tk
 
 class App():
-    WIDTH = 1100 # > 8*TILE_SIZE
+    WIDTH = 1100 # > 8*ISLAND_SIZE
     HEIGHT = 0 # For auto height from width, keep small
-    TILE_SIZE = 125 # Default=125
+    ISLAND_SIZE = 125 # Default=125
 
     def __init__(self):
+        """Constructor: -> self"""
         self.fixSize()
         self.createGui()
 
     def fixSize(self):
-        spacingX = (self.WIDTH-(self.TILE_SIZE*8))/9.0
-        spacingY = (self.HEIGHT-(self.TILE_SIZE*8))/9.0
+        """ -> void"""
+        spacingX = (self.WIDTH-(self.ISLAND_SIZE*8))/9.0
+        spacingY = (self.HEIGHT-(self.ISLAND_SIZE*8))/9.0
         if ((spacingX > spacingY)and(spacingY>0)): # Height restrict
             self.SPACING = spacingY
             self.WIDTH = int(0.5+(7*self.SPACING)+(5*self.TILE_SIZE))
@@ -21,6 +23,7 @@ class App():
             self.HEIGHT = int(0.5+(7*self.SPACING)+(6*self.TILE_SIZE))
 
     def createGui(self):
+        """ -> void"""
         self.root = Tk.Tk()
         self.root.title("Forbidden Island")
 
@@ -33,24 +36,25 @@ class App():
         self.canvas.pack()
 
     def drawRect(self, x1,y1, x2,y2):
+        """double, double, double, double -> void"""
         self.canvas.create_rectangle(x1,y1, x2,y2, fill="DARK GREY")
 
-    def addTile(self, x, y):
-        xPos = self.TILE_SIZE*x + self.SPACING*(x+1)
-        yPos = self.TILE_SIZE*y + self.SPACING*(y+1)
-        self.drawRect(xPos,yPos, xPos+self.TILE_SIZE, yPos+self.TILE_SIZE)
+    def addIsland(self, x, y):
+        """double, double -> void"""
+        xPos = self.ISLAND_SIZE*x + self.SPACING*(x+1)
+        yPos = self.ISLAND_SIZE*y + self.SPACING*(y+1)
+        self.drawRect(xPos,yPos, xPos+self.ISLAND_SIZE, yPos+self.ISLAND_SIZE)
 
-    def addTiles(self):
-        spacing = self.SPACING
+    def addIslandss(self):
+        """ -> void"""
         for y in range(6):
-            #yPos = self.TILE_SIZE*(y+1) + spacing*(y+2)
-            n = int(7-2*abs(2.5-y)) #2,4,6,6,4,2
-            xOffset = 1+int(-0.5+abs(2.5-y)) # 2,1,0,0,1,2
+            n = int(7-2*abs(2.5-y)) # Number of islands to gen in row # 2,4,6,6,4,2
+            xOffset = int(0.5+abs(2.5-y)) # Offset to create * shape # 3,2,1,1,2,3
             for x in range(n):
-                self.addTile(x+xOffset, y)
+                self.addIsland(x+xOffset, y)
 
     mainloop = lambda self: self.root.mainloop()
     
 root = App()
-root.addTiles()
+root.addIsland()
 root.mainloop()
