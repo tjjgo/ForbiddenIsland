@@ -1,7 +1,7 @@
 import csv
 import random
 
-class treasureCard():
+class TreasureCard():
     def __init__(self, name, description, image, canBeUsed):
         self.name = name
         self.description = description
@@ -14,7 +14,7 @@ def initCardList(cardFile):
         readCSV = csv.reader(csvfile, delimiter=',')
         for row in readCSV:
             for i in range(0, int(row[1])):
-                cardList.append(treasureCard(row[0], row[2], row[3], row[4]))
+                cardList.append(TreasureCard(row[0], row[2], row[3], row[4]))
     random.shuffle(cardList)
     return cardList
 
