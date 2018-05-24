@@ -1,7 +1,9 @@
 import csv
 import random
 
-class treasureCard():
+TREASURE_CARD_PATH = "treasure_cards.csv"
+
+class TreasureCard():
     def __init__(self, name, description, image, canBeUsed):
         self.name = name
         self.description = description
@@ -14,11 +16,11 @@ def initCardList(cardFile):
         readCSV = csv.reader(csvfile, delimiter=',')
         for row in readCSV:
             for i in range(0, int(row[1])):
-                cardList.append(treasureCard(row[0], row[2], row[3], row[4]))
+                cardList.append(TreasureCard(row[0], row[2], row[3], row[4]))
     random.shuffle(cardList)
     return cardList
 
-cardList = initCardList("Treasure_Cards.csv")
+cardList = initCardList(TREASURE_CARD_PATH)
 discardList = []
 
 def printCardList():
@@ -57,9 +59,10 @@ def pop2Cards(cardList, isInitial=False): # isInitial will mean that no waters r
         return pop2Cards(cardList, isInitial)
 
 
+"""
 #test loop
-
-##while True:
-##    for i in pop2Cards(cardList, False):
-##        print(i.name)
-##    print("done")
+while True:
+    for i in pop2Cards(cardList, False):
+        print(i.name)
+    print("done")
+"""
