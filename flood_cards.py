@@ -10,7 +10,7 @@ class FloodCard():
     FLOOD_CARDS_PATH = "flood_cards.csv"
 
     def __init__(self):
-        "-> void"
+        """ -> void"""
 
         self.flood_level = 2 #To get from other object
 
@@ -18,14 +18,15 @@ class FloodCard():
         self.flood_cards = []
         self.turn_cards = []
 
-        for i in list(open(self.FLOOD_CARDS_PATH, 'r').readlines()):
+        fileHandle = open(self.FLOOD_CARDS_PATH, 'r')
+        for i in list(fileHandle.readlines()):
             self.flood_cards.append(i.replace("\n", "").split(","))
 
         random.shuffle(self.flood_cards)
 
     #General functions
     def getFloodCards(self, n, is_waters_rise=False):
-        "int* -> array"
+        """int, boolean -> FloodCard[]"""
 
         selected_cards = self.flood_cards[:n] #select top n shuffled cards
         self.turn_cards += selected_cards
@@ -42,24 +43,24 @@ class FloodCard():
 
     #Game functions
     def getInitialFloodCards(self):
-        "-> array"
+        """ -> FloodCard[]"""
         return self.getFloodCards(6)
 
 
     def watersRiseEvent(self):
-        "-> array"
+        """ -> FloodCard[]"""
         return self.getFloodCards(self.flood_level, True)
 
 
     def shuffleAllFloodCards(self):
-        "-> array"
+        """ -> FloodCard[]"""
         random.shuffle(self.flood_cards)
         return self.flood_cards
 
 
     #Debug functions
     def printFloodCardInfo(self):
-        "-> void"
+        """ -> void"""
 
         print(self.flood_cards)
         print(self.turn_cards)

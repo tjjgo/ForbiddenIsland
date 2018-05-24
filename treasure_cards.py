@@ -4,13 +4,15 @@ import random
 TREASURE_CARD_PATH = "treasure_cards.csv"
 
 class TreasureCard():
-    def __init__(self, name, description, image, canBeUsed):
+    def __init__(self, name, description, imageDir, canBeUsed):
+        """Constructor: String, String, String, boolean -> self"""
         self.name = name
         self.description = description
-        self.image = image
+        self.image = imageDir
         self.canBeUsed = canBeUsed
 
 def initCardList(cardFile):
+    """"String -> TreasureCard[]"""
     cardList = []
     with open(cardFile) as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
@@ -24,10 +26,12 @@ cardList = initCardList(TREASURE_CARD_PATH)
 discardList = []
 
 def printCardList():
+    """ -> void"""
     for i in range(0, len(cardList)):
         print(cardList[i].name, cardList[i].description, cardList[i].image, cardList[i].canBeUsed)
 
 def pop2Cards(cardList, isInitial=False): # isInitial will mean that no waters rise cards will be returned
+    """TreasureCard[], boolean -> TreasureCard[2]"""
     run = True
     cardsToAppend = []
     try:
