@@ -8,7 +8,7 @@ class Player:
         self.actionsRem = 3
         self.treasures = []
         self.isTurn = False
-        self.position = 0+0j
+        self.position = 0 # Do we use indexing or what, cos then problem with moving
         self.icon = None
         self.id = None
     def setAdventurer(self, adventurer):
@@ -17,8 +17,8 @@ class Player:
     def addTreasureCard(self, card):
         """TreasureCard -> void"""
         self.treasures += [card]
-    def setPosition(self, x, y):
-        """int, int -> void"""
+    def setPosition(self, index):
+        """int -> void"""
         self.position = x+y*1j
     def move(self, dX, dY):
         """int, int -> void"""
@@ -36,8 +36,8 @@ class Player:
         """ -> AdventurerCard"""
         return self.adventurer
     def getPosition(self):
-        """ -> int[2]"""
-        return [self.position.real, self.position.imag]
+        """ -> int"""
+        return self.position
     def getId(self):
         """ -> int"""
         return self.id
