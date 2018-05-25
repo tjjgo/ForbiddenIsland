@@ -25,9 +25,10 @@ def play_the_game():
     # TODO: Brings down options for
 
 def open_rulebook():
-    os.startfile("Assets/ForbiddenIslandTM-RULES.pdf")
+    os.chdir("./Assets")
+    os.startfile("ForbiddenIslandTM-RULES.pdf")
 
-def canvasEvent(e):
+"""def canvasEvent(e):
     def isInBox(e, x1,y1, x2,y2):
         return False
     if isInBox(e, 100,100, 125,125):
@@ -36,13 +37,13 @@ def canvasEvent(e):
         open_rulebook()
     else:
         print("Invalid pos")
-    print(e.keysym)
+    print(e.keysym)"""
 
 #-------------------------------Background Image-------------------------------#
 canvas = Tk.Canvas(welcomeFrame)
 canvas.place(relx=0, rely=0, relwidth=1.0, relheight=1.0)
 
-bgImg = Tk.PhotoImage(file="Assets/Background-Image.gif") # 1024x715
+bgImg = Tk.PhotoImage(file="Assets/new_background.png") # 1024x715
 # TODO: Resize later in photoshop
 canvas.create_image(WIDTH//2, HEIGHT//2, image=bgImg)
 
@@ -55,15 +56,15 @@ canvas.create_image(WIDTH//2, HEIGHT//2, image=bgImg)
 #canvas.bind("<Button-1>", canvasEvent)
 
 
-#play_button = Tk.Button(welcomeFrame, text="Play", command=play_the_game)
-#play_button.place(20, 20) # Align up with img
+play_button = Tk.Button(welcomeFrame, text="Play", command=play_the_game)
+play_button.place(relx=0.5,rely=0.5 , relwidth=0.1,relheight=0.1) # Align up with img
 
-#rulebook_button = Tk.Button(welcomeFrame, text="Rulebook", command=open_rulebook)
-#rulebook_button.place(80, 80) # Align up with img
+rulebook_button = Tk.Button(welcomeFrame, text="Rulebook", command=open_rulebook)
+rulebook_button.place(relx=0.5,rely=0.6 , relwidth=0.1,relheight=0.1) # Align up with img
 
-difficulty = Tk.StringVar(welcomeFrame)
-difficulty.set("Novice")
-difficulty_button = Tk.OptionMenu(welcomeFrame, difficulty, "Novice", "Normal", "Elite", "Legendary")
-difficulty_button.place(relx=0.33,rely=0.67 , relwidth=0.1,relheight=0.08)
+#difficulty = Tk.StringVar(welcomeFrame)
+#difficulty.set("Novice")
+#difficulty_button = Tk.OptionMenu(welcomeFrame, difficulty, "Novice", "Normal", "Elite", "Legendary")
+#difficulty_button.place(relx=0.33,rely=0.67 , relwidth=0.1,relheight=0.08)
 #------------------------------Main Program------------------------------------#
 root.mainloop()
