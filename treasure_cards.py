@@ -4,11 +4,11 @@ import random
 TREASURE_CARD_PATH = "treasure_cards.csv"
 
 class TreasureCard():
-    def __init__(self, name, description, imageDir, canBeUsed):
+    def __init__(self, name, description, imageFile, canBeUsed):
         """Constructor: String, String, String, boolean -> self"""
         self.name = name
         self.description = description
-        self.image = imageDir
+        self.image = imageFile
         self.canBeUsed = canBeUsed
 
 def initCardList(cardFile):
