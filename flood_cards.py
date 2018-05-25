@@ -1,6 +1,6 @@
 import random
 
-class FloodCard():
+class FloodCards():
     """
 
     Multi-purpose class for manipulation and access of flood cards

@@ -5,42 +5,41 @@ class Player:
         """Constructor: -> self"""
         self.adventurer = None # AdventurerCard
         self.treasureCards = [] # TreasureCard[5]
-        self.actionsRem = 3
+        self.actionsRemaining = 3
         self.treasures = []
         self.isTurn = False
-        self.position = 0 # Do we use indexing or what, cos then problem with moving
+        self.position = (0,0)
         self.icon = None
         self.id = None
+
     def setAdventurer(self, adventurer):
         """AdventurerCard -> void"""
         self.adventurer = adventurer
+
     def addTreasureCard(self, card):
         """TreasureCard -> void"""
-        self.treasures += [card]
-    def setPosition(self, index):
+        if not len(self.treasures) == 5:
+            self.treasures += [card]
+        else:
+            pass
+            #Discard one card
+
+    def setPosition(self, position):
         """int -> void"""
-        self.position = x+y*1j
+        self.position = position
+
     def move(self, dX, dY):
         """int, int -> void"""
-        self.position += (dx+dy*1j)
+        self.position = (self.position[0]+dX, self.position[0]+dY)
+
     def setIcon(self, imgDir):
         """String -> void"""
         self.icon = getImg(imgDir)
+
     def setId(self, _id):
         """int -> void"""
         self.id = _id
-    def getActions(self):
-        """ -> int"""
-        return self.actionsRem
-    def getAdventurer(self):
-        """ -> AdventurerCard"""
-        return self.adventurer
-    def getPosition(self):
-        """ -> int"""
-        return self.position
-    def getId(self):
-        """ -> int"""
-        return self.id
-    def getTreasureCards(self):
-        """ -> TreasureCard[]"""
-        return self.treasureCards
+
+    """
+    Get functions not really needed as 'object.var' is an option
+    """

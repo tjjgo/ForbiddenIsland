@@ -1,16 +1,11 @@
 import csv
 import random
 
-<<<<<<< HEAD:TreasureCards.py
-class TreasureCard():
-    def __init__(self, name, description, image, canBeUsed):
-=======
 TREASURE_CARD_PATH = "treasure_cards.csv"
 
 class TreasureCard():
     def __init__(self, name, description, imageFile, canBeUsed):
         """Constructor: String, String, String, boolean -> self"""
->>>>>>> 2ba8e74dac69d1fd336942656cd5cd470914d2a0:treasure_cards.py
         self.name = name
         self.description = description
         self.image = imageFile
