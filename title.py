@@ -60,7 +60,7 @@ play_button = Tk.Button(welcomeFrame, text="Play", command=play_the_game)
 play_button.place(relx=0.5,rely=0.5 , relwidth=0.1,relheight=0.1) # Align up with img
 
 rulebook_button = Tk.Button(welcomeFrame, text="Rulebook", command=open_rulebook)
-rulebook_button.place(relx=0.5,rely=0.6 , relwidth=0.1,relheight=0.1) # Align up with img
+rulebook_button.place(relx=0.5,rely=0.8 , relwidth=0.1,relheight=0.1) # Align up with img
 
 #difficulty = Tk.StringVar(welcomeFrame)
 #difficulty.set("Novice")
